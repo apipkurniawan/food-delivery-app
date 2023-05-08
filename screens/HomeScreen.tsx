@@ -1,9 +1,12 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, StatusBar, TextInput, Text} from 'react-native';
+import {View, StatusBar, TextInput, Text, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import * as Icon from 'react-native-feather';
+
 import {themeColors} from '../theme/theme-color';
+import Categories from '../components/Categories';
 
 function HomeScreen() {
   return (
@@ -30,6 +33,13 @@ function HomeScreen() {
           />
         </View>
       </View>
+
+      {/* main */}
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom: 20}}>
+        <Categories />
+      </ScrollView>
     </SafeAreaView>
   );
 }
