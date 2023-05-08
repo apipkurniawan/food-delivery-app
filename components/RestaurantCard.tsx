@@ -13,8 +13,12 @@ function RestaurantCard({item}: Props) {
   return (
     <TouchableWithoutFeedback>
       <View
-        style={{shadowColor: themeColors.bgColor(0.2), shadowRadius: 7}}
-        className="mr-6 bg-white rounded-3xl shadow-lg">
+        style={{
+          shadowColor: themeColors.bgColor(0.3),
+          shadowRadius: 7,
+          backgroundColor: themeColors.bgColor(0.3),
+        }}
+        className="mr-6 rounded-3xl shadow-lg">
         <Image className="h-36 w-44 rounded-t-3xl" source={item.image} />
         <View className="px-3 pb-4 space-y-2">
           <Text className="text-lg font-bold pt-2">{item.name}</Text>
