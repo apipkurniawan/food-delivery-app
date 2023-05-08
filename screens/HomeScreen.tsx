@@ -7,6 +7,8 @@ import * as Icon from 'react-native-feather';
 
 import {themeColors} from '../theme/theme-color';
 import Categories from '../components/Categories';
+import {featured} from '../constants/dummy';
+import FeaturedRow from '../components/FeaturedRow';
 
 function HomeScreen() {
   return (
@@ -38,7 +40,22 @@ function HomeScreen() {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: 20}}>
+        {/* categories */}
         <Categories />
+
+        {/* featured */}
+        <View className="mt-5">
+          {[featured, featured, featured].map((item, index) => {
+            return (
+              <FeaturedRow
+                key={index}
+                title={item.title}
+                restaurants={item.restaurants}
+                description={item.description}
+              />
+            );
+          })}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
