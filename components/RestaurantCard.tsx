@@ -4,14 +4,16 @@ import React from 'react';
 import {View, Text, TouchableWithoutFeedback, Image} from 'react-native';
 import * as Icon from 'react-native-feather';
 import {themeColors} from '../theme/theme-color';
+import { useNavigation } from '@react-navigation/native';
 
 type Props = {
   item: any;
 };
 
 function RestaurantCard({item}: Props) {
+  const navigation = useNavigation();
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback onPress={() => navigation.navigate('Restaurant', {...item})}>
       <View
         style={{
           shadowColor: themeColors.bgColor(0.3),
