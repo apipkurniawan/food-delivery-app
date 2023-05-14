@@ -2,7 +2,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {View, ScrollView, Image, TouchableOpacity, Text} from 'react-native';
+import {
+  View,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Text,
+  StatusBar,
+} from 'react-native';
 import * as Icon from 'react-native-feather';
 import {themeColors} from '../theme/theme-color';
 import DishRow from '../components/DishRow';
@@ -14,6 +21,7 @@ const RestaurantScreen = () => {
   let item: any = params;
   return (
     <View>
+      <StatusBar barStyle="light-content" />
       <CartIcon />
       <ScrollView>
         {/* header */}

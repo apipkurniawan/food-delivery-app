@@ -12,7 +12,7 @@ import FeaturedRow from '../components/FeaturedRow';
 function HomeScreen() {
   return (
     <SafeAreaView className="bg-white">
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="dark-content" />
       {/* search bar */}
       <View className="flex-row items-center space-x-2 mt-3 px-4 pb-2">
         <View className="flex-row flex-1 items-center py-1 px-3 rounded-full border border-gray-300">

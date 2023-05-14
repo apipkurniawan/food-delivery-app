@@ -4,7 +4,7 @@ import React from 'react';
 import {View, Text, TouchableWithoutFeedback, Image} from 'react-native';
 import * as Icon from 'react-native-feather';
 import {themeColors} from '../theme/theme-color';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = {
   item: any;
@@ -13,7 +13,8 @@ type Props = {
 function RestaurantCard({item}: Props) {
   const navigation = useNavigation();
   return (
-    <TouchableWithoutFeedback onPress={() => navigation.navigate('Restaurant', {...item})}>
+    <TouchableWithoutFeedback
+      onPress={() => navigation.navigate('Restaurant', {...item})}>
       <View
         style={{
           shadowColor: themeColors.bgColor(0.3),
@@ -21,7 +22,7 @@ function RestaurantCard({item}: Props) {
           backgroundColor: themeColors.bgColor(0.3),
         }}
         className="mr-6 rounded-3xl shadow-lg">
-        <Image className="h-36 w-44 rounded-t-3xl" source={item.image} />
+        <Image className="h-36 w-64 rounded-t-3xl" source={item.image} />
         <View className="px-3 pb-4 space-y-2">
           <Text className="text-lg font-bold pt-2">{item.name}</Text>
           <View className="flex-row items-center space-x-1">
