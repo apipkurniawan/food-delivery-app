@@ -6,8 +6,6 @@ function OrderPrepairingScreen() {
   const navigation = useNavigation();
   useEffect(() => {
     setTimeout(() => {
-      console.log('yuhuuuu');
-
       navigation.navigate('Delivery');
     }, 3000);
   }, []);
