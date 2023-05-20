@@ -1,11 +1,17 @@
+/* eslint-disable curly */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {TouchableOpacity, View, Text} from 'react-native';
 import {themeColors} from '../theme/theme-color';
 import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
+import {selectCartItems, selectCartTotal} from '../slices/cartSlice';
 
 function CartIcon() {
   const navigation = useNavigation();
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+  if (!cartItems.length) return;
 
   return (
     <View className="absolute bottom-5 w-full z-50">
@@ -16,12 +22,14 @@ function CartIcon() {
         <View
           className="p-2 px-4 rounded-full"
           style={{backgroundColor: 'rgba(255,255,255,0.3)'}}>
-          <Text className="font-extrabold text-white text-lg">3</Text>
+          <Text className="font-extrabold text-white text-lg">
+            {cartItems.length}
+          </Text>
         </View>
         <Text className="flex-1 text-center font-extrabold text-white text-lg">
           View Cart
         </Text>
-        <Text className="font-extrabold text-white text-lg">${23}</Text>
+        <Text className="font-extrabold text-white text-lg">${cartTotal}</Text>
       </TouchableOpacity>
     </View>
   );

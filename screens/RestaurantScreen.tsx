@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {
   View,
@@ -13,11 +13,21 @@ import * as Icon from 'react-native-feather';
 import {themeColors} from '../theme/theme-color';
 import DishRow from '../components/DishRow';
 import CartIcon from '../components/CartIcon';
+import {useDispatch} from 'react-redux';
+import {setRestaurant} from '../slices/restaurantSlice';
 
 const RestaurantScreen = () => {
   const {params} = useRoute();
   const navigation = useNavigation();
   let item: any = params;
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (item && item.id) {
+      dispatch(setRestaurant({...item}));
+    }
+  });
+
   return (
     <View>
       <StatusBar barStyle="light-content" />

@@ -6,32 +6,36 @@ import RestaurantScreen from './screens/RestaurantScreen';
 import CartScreen from './screens/CartScreen';
 import OrderPrepairingScreen from './screens/OrderPrepairingScreen';
 import DeliveryScreen from './screens/DeliveryScreen';
+import {store} from './store/store';
+import {Provider} from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Restaurant" component={RestaurantScreen} />
-        <Stack.Screen
-          name="Cart"
-          options={{presentation: 'modal'}}
-          component={CartScreen}
-        />
-        <Stack.Screen
-          name="OrderPrepairing"
-          options={{presentation: 'fullScreenModal'}}
-          component={OrderPrepairingScreen}
-        />
-        <Stack.Screen
-          name="Delivery"
-          options={{presentation: 'fullScreenModal'}}
-          component={DeliveryScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+          <Stack.Screen
+            name="Cart"
+            options={{presentation: 'modal'}}
+            component={CartScreen}
+          />
+          <Stack.Screen
+            name="OrderPrepairing"
+            options={{presentation: 'fullScreenModal'}}
+            component={OrderPrepairingScreen}
+          />
+          <Stack.Screen
+            name="Delivery"
+            options={{presentation: 'fullScreenModal'}}
+            component={DeliveryScreen}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

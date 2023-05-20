@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export const categories = [
   {
     id: 1,
