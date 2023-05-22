@@ -63,11 +63,11 @@ function DeliveryScreen() {
             style={{backgroundColor: 'rgba(255, 255, 255, 0.4)'}}>
             <Image
               className="h-16 w-16 rounded-full"
-              source={require('../assets/images/deliveryGuy.png')}
+              source={require('../assets/images/deliveryGuy2.png')}
             />
           </View>
           <View className="flex-1 ml-3">
-            <Text className="text-lg font-bold text-white">Syed Noman</Text>
+            <Text className="text-lg font-bold text-white">Apip Kurniawan</Text>
             <Text className="font-semibold text-white">Your Rider</Text>
           </View>
           <View className="flex-row items-center space-x-3 mr-3">

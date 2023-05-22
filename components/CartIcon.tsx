@@ -11,7 +11,6 @@ const CartIcon = () => {
   const navigation = useNavigation();
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
-  if (!cartItems.length) return;
 
   return (
     <View className="absolute bottom-5 w-full z-50">

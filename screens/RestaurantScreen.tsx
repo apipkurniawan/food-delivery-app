@@ -13,13 +13,15 @@ import * as Icon from 'react-native-feather';
 import {themeColors} from '../theme/theme-color';
 import DishRow from '../components/DishRow';
 import CartIcon from '../components/CartIcon';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setRestaurant} from '../slices/restaurantSlice';
 import {urlFor} from '../sanity';
+import {selectCartItems} from '../slices/cartSlice';
 
 const RestaurantScreen = () => {
   const {params} = useRoute();
   const navigation = useNavigation();
+  const cartItems = useSelector(selectCartItems);
   let item: any = params;
 
   const dispatch = useDispatch();
@@ -29,10 +31,15 @@ const RestaurantScreen = () => {
     }
   });
 
+  let cartIcon;
+  if (cartItems.length > 0) {
+    cartIcon = <CartIcon />;
+  }
+
   return (
     <View>
       <StatusBar barStyle="light-content" />
-      <CartIcon />
+      {cartIcon}
       <ScrollView>
         {/* header */}
         <View className="relative">

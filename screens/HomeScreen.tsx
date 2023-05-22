@@ -28,7 +28,7 @@ function HomeScreen() {
           <TextInput placeholder="Restaurant" className="ml-2 flex-1" />
           <View className="flex-row items-center space-x-1 border-0 pl-2 border-l-2 border-l-gray-300">
             <Icon.MapPin height={20} width={20} stroke="gray" />
-            <Text className="text-gray-600">New York, NYC</Text>
+            <Text className="text-gray-600">Cibitung, Bekasi</Text>
           </View>
         </View>
         <View
