@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {selectCartItems, selectCartTotal} from '../slices/cartSlice';
 
-function CartIcon() {
+const CartIcon = () => {
   const navigation = useNavigation();
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
@@ -33,6 +33,6 @@ function CartIcon() {
       </TouchableOpacity>
     </View>
   );
-}
+};
 
 export default CartIcon;

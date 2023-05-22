@@ -11,6 +11,7 @@ import {
   selectCartItems,
   selectCartTotal,
 } from '../slices/cartSlice';
+import {urlFor} from '../sanity';
 
 function CartScreen() {
   const navigation = useNavigation();
@@ -79,7 +80,10 @@ function CartScreen() {
               <Text className="font-bold" style={{color: themeColors.text}}>
                 {items.length} x
               </Text>
-              <Image className="h-14 w-14 rounded-full" source={dish.image} />
+              <Image
+                className="h-14 w-14 rounded-full"
+                source={{uri: urlFor(dish.image).url()}}
+              />
               <Text className="flex-1 font-bold text-gray-700">
                 {dish.name}
               </Text>

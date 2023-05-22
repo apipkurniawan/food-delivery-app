@@ -15,6 +15,7 @@ import DishRow from '../components/DishRow';
 import CartIcon from '../components/CartIcon';
 import {useDispatch} from 'react-redux';
 import {setRestaurant} from '../slices/restaurantSlice';
+import {urlFor} from '../sanity';
 
 const RestaurantScreen = () => {
   const {params} = useRoute();
@@ -23,7 +24,7 @@ const RestaurantScreen = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (item && item.id) {
+    if (item && item._id) {
       dispatch(setRestaurant({...item}));
     }
   });
@@ -35,7 +36,10 @@ const RestaurantScreen = () => {
       <ScrollView>
         {/* header */}
         <View className="relative">
-          <Image className="w-full h-72" source={item.image} />
+          <Image
+            className="w-full h-72"
+            source={{uri: urlFor(item.image).url()}}
+          />
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             className="absolute top-8 left-4 bg-gray-50 p-2 rounded-full shadow">
@@ -61,7 +65,7 @@ const RestaurantScreen = () => {
                   <Text className="text-green-700">{item.stars}</Text>
                   <Text className="text-gray-700">
                     ({item.reviews} review) .
-                    <Text className="font-semibold"> {item.category}</Text>
+                    <Text className="font-semibold"> {item?.type?.name}</Text>
                   </Text>
                 </Text>
               </View>

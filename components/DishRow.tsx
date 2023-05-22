@@ -9,6 +9,7 @@ import {
   removeFromCart,
   selectCartItemsById,
 } from '../slices/cartSlice';
+import {urlFor} from '../sanity';
 
 type Props = {
   item: any;
@@ -16,21 +17,21 @@ type Props = {
 
 function DishRow({item}: Props) {
   const dispatch = useDispatch();
-  const totalItems = useSelector(state => selectCartItemsById(state, item.id));
+  const totalItems = useSelector(state => selectCartItemsById(state, item._id));
 
   const handleIncrease = () => {
     dispatch(addToCart({...item}));
   };
 
   const handleDecrease = () => {
-    dispatch(removeFromCart({id: item.id}));
+    dispatch(removeFromCart({id: item._id}));
   };
 
   return (
     <View className="flex-row items-center bg-white p-3 rounded-3xl shadow-2xl mb-3 mx-2">
       <Image
         className="rounded-3xl"
-        source={item.image}
+        source={{uri: urlFor(item.image).url()}}
         style={{height: 100, width: 100}}
       />
       <View className="flex flex-1 space-y-3">

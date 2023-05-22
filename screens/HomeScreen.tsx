@@ -1,15 +1,23 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StatusBar, TextInput, Text, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import * as Icon from 'react-native-feather';
 
 import {themeColors} from '../theme/theme-color';
 import Categories from '../components/Categories';
-import {featured} from '../constants/dummy';
 import FeaturedRow from '../components/FeaturedRow';
+import {getFeaturedRestaurants} from '../api';
 
 function HomeScreen() {
+  const [featuredRestaurant, setFeaturedRestaurant] = useState<any>([]);
+
+  useEffect(() => {
+    getFeaturedRestaurants().then(data => {
+      setFeaturedRestaurant(data);
+    });
+  });
+
   return (
     <SafeAreaView className="bg-white">
       <StatusBar barStyle="dark-content" />
@@ -44,11 +52,11 @@ function HomeScreen() {
 
         {/* featured */}
         <View className="mt-5 mb-12">
-          {[featured, featured, featured].map((item, index) => {
+          {featuredRestaurant.map((item: any, index: number) => {
             return (
               <FeaturedRow
                 key={index}
-                title={item.title}
+                title={item.name}
                 restaurants={item.restaurants}
                 description={item.description}
               />
